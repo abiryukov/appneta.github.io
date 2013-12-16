@@ -1,13 +1,18 @@
 ---
 layout: default
-title: Your New Jekyll Site
+title: Tcpreplay  - Pcap editing and replaying tools for *NIX
 ---
 
 <div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+	<h1>Welcome to Tcpreplay!</h1>
+	
+	<p>Tcpreplay is a suite of GPLv3 licensed tools for UNIX (and Win32 under Cygwin) operating systems which gives you the ability to use previously captured traffic in libpcap format to test a variety of network devices. It allows you to classify traffic as client or server, rewrite Layer 2, 3 and 4 headers and finally replay the traffic back onto the network and through other devices such as switches, routers, firewalls, NIDS and IPS's. Tcpreplay supports both single and dual NIC modes for testing both sniffing and inline devices.</p>
+
+	<h1>Table of Contents</h1>
+	<ul class="posts">
+		{% for post in site.posts %}
+     	<li>&raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+     	{% endfor %}
+     </ul>
 </div>
+

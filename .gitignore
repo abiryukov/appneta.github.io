@@ -8,3 +8,6 @@ profile
 
 #Ignore the site build directory
 _site
+
+# miscellaneous
+Gemfile.lock
