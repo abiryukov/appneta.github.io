@@ -1,1 +1,10 @@
-_site/
+# osx noise
+.DS_Store
+profile
+
+# editors
+.*.swp
+.*.swo
+
+#Ignore the site build directory
+_site
