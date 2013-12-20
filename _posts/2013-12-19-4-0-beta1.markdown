@@ -6,8 +6,8 @@ categories: tcpreplay news
 type: news
 ---
 
-Today we are annoucing the beta launch of the newly expanded capabilities of the Tcpreplay suite,
-expanding capabilites and increasing performance. Version 4.0.0beta1 brings many new features and
+Today we are announcing the beta launch of the newly expanded capabilities of the Tcpreplay suite,
+expanding capabilites and increasing performance. Version 4.0.0 Beta 1 brings many new features and
 bug fixes:
 
 * 10GigE wire-speed replay rates when using [netmap](http://info.iet.unipi.it/~luigi/netmap/) network drivers   
