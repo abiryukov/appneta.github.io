@@ -11,3 +11,4 @@ _site
 
 # miscellaneous
 Gemfile.lock
+.project

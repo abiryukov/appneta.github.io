@@ -1,0 +1,88 @@
+---
+layout: post
+title:  "Tcpreplay 4.0.0beta1 announced"
+date:   2013-12-20 08:50:41
+categories: tcpreplay news
+type: news
+---
+
+Today we are annoucing the beta launch of the newly expanded capabilities of the Tcpreplay suite,
+expanding capabilites and increasing performance. Version 4.0.0beta1 brings many new features and
+bug fixes:
+
+* Full 10GigE replay speeds when using [netmap](http://info.iet.unipi.it/~luigi/netmap/) network drivers   
+* [IP Flow](http://en.wikipedia.org/wiki/Traffic_flow_%28computer_networking%29) statistics  
+* Zero overhead option for unique flows every loop iteration
+* High accuracy, high performance --mbps option
+* Pseudo-CRC to avoid CRC recalcuations and improve performance tcpreplay-edit
+* API for other Open Source projects
+* Deprecation of redundant and obolete options
+* ARM and PPC support including cross-compile support
+* Overhaul of timestamp methodology in main TX loop to maximize performance
+* Switch from BSD to GPLv3 license
+
+*Examples:*
+
+Here is an example output of tcpreplay illustrating 10GigE near wire speed and 157K flows/sec.
+
+```
+# tcpreplay --preload-pcap -i eth7 --loop 500 -t --unique-ip --netmap smallFlows.pcap 
+Switching network driver to netmap bypass mode... done!
+File Cache is enabled
+Actual: 7130500 packets (4608265500 bytes) sent in 3.08 seconds.
+Rated: 1197981408.4 Bps, 9583.85 Mbps, 1853670.63 pps
+Flows: 604500 flows, 157148.01 fps, 7121500 flow packets, 9000 non-flow
+Statistics for network device: eth7
+	Attempted packets: 7130500
+	Successful packets: 7130500
+	Failed packets: 0
+	Truncated packets: 0
+	Retried packets (ENOBUFS): 0
+	Retried packets (EAGAIN): 0
+Switching network driver to normal mode... done!
+```
+
+Note that the above example is closer to wire speed than it first appears. Average packet size
+for this pcap file is (4608265500 ÷ 7130500) = 646 bytes. 10GigE Ethernet will add an 
+additional 17 bytes for IFG, preamble, SOF and FCS which makes the the average frame 
+size on the wire equal to 663. On wire speed is (663 ÷ 646) × 9582.85 = 9836 Mbps. 
+
+The next example is the same except limited to 9500Mbps...
+
+```
+# tcpreplay --preload-pcap -i eth7 -l 500 -M 9500 --unique-ip --netmap smallFlows.pcap 
+Switching network driver to netmap bypass mode... done!
+File Cache is enabled
+Actual: 7130500 packets (4608265500 bytes) sent in 3.08 seconds.
+Rated: 1187498663.2 Bps, 9499.98 Mbps, 1837450.38 pps
+Flows: 604500 flows, 155772.91 fps, 7121500 flow packets, 9000 non-flow
+Statistics for network device: eth7
+	Attempted packets:         7130500
+	Successful packets:        7130500
+	Failed packets:            0
+	Truncated packets:         0
+	Retried packets (ENOBUFS): 0
+	Retried packets (EAGAIN):  0
+Switching network driver to normal mode... done!
+```
+
+When using pcap files with tiny packets, full wire rate is not achieved. The limiting
+factor is the flows per second (fps). Notice that in the following example we achieve 1.8 million
+fps and our packets per second (pps) rate has jumped dramatically.
+
+```
+# tcpreplay --preload-pcap -i eth7 -l50000 -t --unique-ip --netmap tiny-packets.pcap 
+Switching network driver to netmap bypass mode... done!
+File Cache is enabled
+Actual: 550000 packets (42600000 bytes) sent in 0.054122 seconds.
+Rated: 787110601.9 Bps, 6296.88 Mbps, 10162226.08 pps
+Flows: 100000 flows, 1847677.46 fps, 300000 flow packets, 250000 non-flow
+Statistics for network device: eth7
+	Attempted packets:         550000
+	Successful packets:        550000
+	Failed packets:            0
+	Truncated packets:         0
+	Retried packets (ENOBUFS): 0
+	Retried packets (EAGAIN):  0
+Switching network driver to normal mode... done!
+```
