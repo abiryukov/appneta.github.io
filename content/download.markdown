@@ -29,7 +29,7 @@ will be rejected.
 
 * Download via [GitHub][repo]
  - `git clone https://github.com/appneta/tcpreplay`
-* Or if you plan to contribute someday simply [fork][fork] the [repo][repo] and submit a [pull request][pull] when
+* Or if you plan to contribute someday simply [fork][fork] the [repo][repo] and submit a [pull request][pullreq] when
 you are ready to share your changes with us
 * Or download the latest [master tarball][tarball]
 * Note that *master* is always production ready, but not necessary   
@@ -49,6 +49,6 @@ to see the state of master
 [network]:                   https://github.com/appneta/tcpreplay/network
 [fork]:                      https://help.github.com/articles/fork-a-repo
 [repo]:                      https://github.com/appneta/tcpreplay
-[pull]:                      https://help.github.com/articles/fork-a-repo#pull-requests
+[pullreq]:                   https://help.github.com/articles/fork-a-repo#pull-requests
 [autogen]:                   http://autogen.sourceforge.net/
 [autogen-download]:          http://ftp.gnu.org/gnu/autogen/rel5.16.2/
