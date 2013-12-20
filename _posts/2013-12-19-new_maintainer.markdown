@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "New Tcpreplay Suite maintainer announced"
+title:  "Fred Klassen accepts Tcpreplay Suite maintainer role"
 date:   2013-12-20 08:50:40
 categories: tcpreplay news
 type: news
@@ -14,7 +14,7 @@ which includes developers, QA and support staff.
 
 Fred has over 30 years experience in many aspects of networking and application
 performance. He is as comfortable tackling some of the world's most challenging performance
-issues as he is improving network drivers. He has worked on-site at over 100 companies
+issues as he is improving network drivers. He has worked on-site at over 100 corporate companies
 and has taught over 1000 IT specialists the art of performance troubleshooting. Fred holds
 several patents, and is the inventor or end-to-end network performance algorithms found in
 his company's PathView product.

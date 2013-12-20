@@ -10,9 +10,9 @@ Today we are annoucing the beta launch of the newly expanded capabilities of the
 expanding capabilites and increasing performance. Version 4.0.0beta1 brings many new features and
 bug fixes:
 
-* Full 10GigE replay speeds when using [netmap](http://info.iet.unipi.it/~luigi/netmap/) network drivers   
+* 10GigE wire-speed replay rates when using [netmap](http://info.iet.unipi.it/~luigi/netmap/) network drivers   
 * [IP Flow](http://en.wikipedia.org/wiki/Traffic_flow_%28computer_networking%29) statistics  
-* Zero overhead option for unique flows every loop iteration
+* Near-zero overhead option for generating unique flows every loop iteration
 * High accuracy, high performance --mbps option
 * Pseudo-CRC to avoid CRC recalcuations and improve performance tcpreplay-edit
 * API for other Open Source projects

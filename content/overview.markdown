@@ -16,10 +16,7 @@ it for so that I can continue to add features which are useful.
 
 Version 4.0.0 is the first version delivered by Fred Klassen of AppNeta Inc. Many thanks to the author of Tcpreplay,
 Aaron Turner who has supplied the world with a a solid and full-featured test product thus far. The new author
-strives to take Tcprelay performance to levels normally only seen in commercial network test equipment. For 
-example, using commodity hardware with stock Intel 10GigE adapters with [netmap][nm] modified network drivers you
-can generate full wire rate pcap file playback. With new [IP Flow][flow] features you can generate up to 1.8 
-million flows per second.
+strives to take Tcprelay performance to levels normally only seen in commercial network test equipment.
 
 [gplv3]:    http://www.gnu.org/licenses/gpl-3.0.html
 [nm]:       http://info.iet.unipi.it/~luigi/netmap/
