@@ -6,8 +6,9 @@ categories: tcpreplay content
 
 UNDER CONSTRUCTION - for now please go [here][legacy_wiki].
 
-
-### Simple directions for Unix users:   
+---
+Simple directions for Unix users: 
+=================================  
 Download the release tarball, extract and then...
 
 ```
@@ -15,7 +16,10 @@ Download the release tarball, extract and then...
 make
 sudo make install
 ```
-### Build netmap feature
+
+---
+Build netmap feature
+====================
 This feature will detect [netmap][nm]
 capable network drivers on Linux and BSD 
 systems. If detected, the network driver is bypassed for the execution 

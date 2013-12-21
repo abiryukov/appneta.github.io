@@ -25,7 +25,7 @@ If your problem has to do with RUNNING tcpreplay or one of the sub-tools:
 * The core dump or backtrace if available
 * Detailed description of your problem or what you are trying to accomplish
 
-Note: The author of tcpreplay primarily uses OS X and Linux; hence, if you're reporting
+Note: The maintainers of tcpreplay primarily uses OS X and Linux; hence, if you're reporting
 an issue on another platform, it is important that you give very detailed
 information as I may not be able to reproduce your issue.
 
@@ -35,6 +35,6 @@ tcpreplay-users email list:
 
 http://lists.sourceforge.net/lists/listinfo/tcpreplay-users
 
-Lastly, please don't email the author directly with your questions.  Doing so
+Lastly, please don't email the maintainers directly with your questions.  Doing so
 prevents others from potentially helping you and your question/answer from
 showing up in the list archives.
