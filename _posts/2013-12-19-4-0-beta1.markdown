@@ -7,7 +7,7 @@ type: news
 ---
 
 Today we are announcing the beta launch of the newly expanded capabilities of the Tcpreplay suite,
-expanding capabilites and increasing performance. Version 4.0.0 Beta 1 brings many new features and
+expanding capabilites and increasing performance. Version [4.0.0 Beta 1][downloads] brings many new features and
 bug fixes:
 
 * 10GigE wire-speed replay rates when using [netmap](http://info.iet.unipi.it/~luigi/netmap/) network drivers   
@@ -86,3 +86,5 @@ Statistics for network device: eth7
 	Retried packets (EAGAIN):  0
 Switching network driver to normal mode... done!
 ```
+
+[downloads]:      {{ site.url }}/content/download.html
