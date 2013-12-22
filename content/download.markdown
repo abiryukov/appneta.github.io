@@ -13,9 +13,9 @@ categories: tcpreplay content
  - [Download stats][stats]
  
 * Latest BETA release:
- - [tcpreplay-4.0.0beta1.tar.gz][tcpreplay-4.0.0beta1] 
- - [PGP signature][tcpreplay-4.0.0beta1.asc]
- - [Announcement][4.0.0beta1_announce]   
+ - [tcpreplay-4.0.0beta2][tcpreplay-4.0.0beta2] 
+ - [Beta 2 announcement][4.0.0beta2_announce]   
+ - [Beta 1 announcement][4.0.0beta1_announce]   
 * [Old Win32 release][win32]
  - Note that Windows is not supported by the maintainer   
 * [Complete list of past releases][old_stuff]
@@ -41,9 +41,10 @@ to see the state of master
 [tcpreplay-3.4.4]:           http://prdownloads.sourceforge.net/tcpreplay/tcpreplay-3.4.4.tar.gz?download
 [tcpreplay-3.4.4.asc]:       http://tcpreplay.synfin.net/raw-attachment/wiki/Download/tcpreplay-3.4.4.tar.gz.asc
 [tcpreplay-3.4.4.changelog]: http://tcpreplay.synfin.net/browser/tags/3.4.4/docs/CHANGELOG
-[tcpreplay-4.0.0beta1]:      https://drive.google.com/file/d/0Bwy1iN_ElthJc3RwU0dMWGxBcGs/edit?usp=sharing
-[tcpreplay-4.0.0beta1.asc]:  https://drive.google.com/file/d/0Bwy1iN_ElthJeXdmT05jME4yc3M/edit?usp=sharing
-[4.0.0beta1_announce]:       /tcpreplay/news/2013/12/20/4-0-beta1.html
+[tcpreplay-4.0.0beta2]:      https://drive.google.com/folderview?id=0Bwy1iN_ElthJWi14Mnh5YUJTUWs&usp=docslist_api#
+[tcpreplay-4.0.0beta2.asc]:  https://drive.google.com/file/d/0Bwy1iN_ElthJeXdmT05jME4yc3M/edit?usp=sharing
+[4.0.0beta1_announce]:       {{ site.url }}/tcpreplay/news/2013/12/20/4-0-beta1.html
+[4.0.0beta2_announce]:       {{ site.url }}/tcpreplay/news/2013/12/22/4-0-beta2.html
 [win32]:                     http://sourceforge.net/projects/tcpreplay/files/tcpreplay-win32/
 [old_stuff]:                 http://sourceforge.net/projects/tcpreplay/files/
 [stats]:                     http://sourceforge.net/projects/tcpreplay/files/stats/timeline

@@ -1,0 +1,19 @@
+---
+layout: post
+title:  "Tcpreplay 4.0.0beta2 announced"
+date:   2013-12-22 12:50:00
+categories: tcpreplay news
+type: news
+---
+
+Today we are releasing Tcpreplay suite version [4.0.0 Beta 2][downloads]. Many thanks to
+the early support received from the Tcpreplay community to help idenfity and
+resolve some bugs. Here's what's new:
+
+- Restored -K option which somehow disappeared (appneta #35)
+- Improve printing with small pcaps at high rates (appneta #34)
+- Fixed build errors on BSD and Fedora 20 (appneta #32 #33)
+
+Visit our [downloads][] page to get it.
+
+[downloads]:      {{ site.url }}/content/download.html
