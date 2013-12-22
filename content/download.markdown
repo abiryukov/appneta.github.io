@@ -27,6 +27,8 @@ Specifically you must have [AutoGen][autogen] installed. If you plan to contribu
 have [AutoGen version 5.16.2][autogen-download], otherwise your [pull requests]
 will be rejected.
 
+If you want to help develop Tcpreplay visit our [Developer Wiki][dev-wiki].
+
 * Download via [GitHub][repo]
  - `git clone https://github.com/appneta/tcpreplay`
 * Or if you plan to contribute someday simply [fork][fork] the [repo][repo] and submit a [pull request][pullreq] when
@@ -52,3 +54,4 @@ to see the state of master
 [pullreq]:                   https://help.github.com/articles/fork-a-repo#pull-requests
 [autogen]:                   http://autogen.sourceforge.net/
 [autogen-download]:          http://ftp.gnu.org/gnu/autogen/rel5.16.2/
+[dev-wiki]:                  https://github.com/appneta/tcpreplay/wiki
