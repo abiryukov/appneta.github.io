@@ -10,7 +10,7 @@ you to classify traffic as client or server, rewrite Layer 2, 3 and 4 headers an
 the network and through other devices such as switches, routers, firewalls, NIDS and IPS's. Tcpreplay supports both single 
 and dual NIC modes for testing both sniffing and in-line devices.
 
-Tcpreplay is used by numerous firewall, IDS, IPS, NetFlow and other networking vendors, enterprises, universities,
+Tcpreplay is used by numerous firewall, IDS, IPS, IP Flow/NetFlow and other networking vendors, enterprises, universities,
 labs and open source projects. If your organization uses Tcpreplay, please let me know who you are and what you use
 it for so that I can continue to add features which are useful.
 
