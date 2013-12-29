@@ -4,14 +4,45 @@ title:  "tcprewrite"
 categories: tcpreplay content
 ---
 
+<br />
+
+- [Overview](#overview)
+- [Basic Usage](#basic-usage)
+	- [Direction & Selection](#direction-&-selection)
+- [Rewriting Layer 2](#rewriting-layer-2)
+	- [DLT Plugins](#dlt-plugins)
+	- [DLT_EN10MB (Ethernet)](#dlt_en10mb-ethernet)
+		- [Rewriting Source & Destination MAC addresses](#rewriting-source-&-destination-mac-addresses)
+		- [802.1q VLAN's](#8021q-vlan's)
+	- [DLT_CHDLC (Cisco HDLC)](#dlt_chdlc-cisco-hdlc)
+	- [DLT_USER0 (User Defined)](#dlt_user0-user-defined)
+- [Rewriting Layer 3](#rewriting-layer-3)
+	- [Forcing Traffic Between Two Hosts](#forcing-traffic-between-two-hosts)
+	- [Randomizing IP Addresses](#randomizing-ip-addresses)
+	- [Changing Networks via Pseudo-NAT, Source/Destination IP Map](#changing-networks-via-pseudo-nat-sourcedestination-ip-map)
+	- [Editing IPv4 TOS/DiffServ/ECN](#editing-ipv4-tosdiffservecn)
+	- [Editing IPv6 Traffic Class](#editing-ipv6-traffic-class)
+	- [Editing IPv6 Flow Label](#editing-ipv6-flow-label)
+- [Rewriting Layer 4](#rewriting-layer-4)
+	- [Re-Mapping Ports](#re-mapping-ports)
+	- [Forcing Checksum Calculation](#forcing-checksum-calculation)
+- [Rewriting Layers 5-7](#rewriting-layers-5-7)
+- [Dealing with MTU problems](#dealing-with-mtu-problems)
+- [Fragroute](#fragroute)
+	- [Overview](#overview2)
+	- [Usage](#usage)
+
+<br />
+
+---
+<h2><a name="overview"></a>Overview</h2>
 In version 3.0, all of the packet editing functionality in [tcpreplay] was moved
 to [tcprewrite]. In 3.4.1 this editing functionality was re-introduced in *tcpreplay*
 with the creation of [tcpreplay-edit]. Hence, all the options listed below are valid
 for both *tcprewrite* and *tcpreplay-edit*.
 
-
-## Basic Usage
-
+---
+<h2><a name="basic-usage"></a>Basic Usage</h2>
 Running *tcprewrite* requires you to provide it an input pcap file and the name 
 of the output pcap file (which will be overwritten).
 
@@ -21,8 +52,7 @@ $ tcprewrite --infile=input.pcap --outfile=output.pcap
 
 Additional arguments for actually editing packets are described below.
 
-### Direction & Selection
-
+<h3><a name="direction-&-selection"></a>Direction & Selection</h3>
 Before we get to packet editing, it is important to remember that some of these rewrite 
 options allow you to edit packets differently depending on the direction 
 of the packet. Packet direction is determined by consulting a *tcpprep cache file*, 
@@ -35,14 +65,13 @@ cache files with different processing rules for multiple passes of *tcprewrite*.
 
 To specify a *tcpprep cache file* to use during processing, use the `--cachefile` option.
 
-## Rewriting Layer 2
-
+---
+<h2><a name="rewriting-layer-2"></a>Rewriting Layer 2</h2>
 *tcprewrite* supports a lot of Layer 2 rewriting options to help you modify packets so
 that traffic can flow through switches, firewalls, routers, IPS's and many other
 forwarding devices.
 
-### DLT Plugins
-
+<h3><a name="dlt-plugins"></a>DLT Plugins</h3>
 As of 3.0, tcprewrite uses plugins to support different DLT/Layer 2 types.
 This not only makes the code easier to maintain, but also helps make things clearer
 for users regarding what is and isn't supported. Each plugin may support reading
@@ -73,15 +102,11 @@ Hence, if you have a pcap in one of the supported input DLT types, you can conve
 to one of the supported output DLT type by using the `--dlt=<output>` option. Depending
 on the input DLT you may need to provide additional DLT plugin flags.
 
-
-### DLT_EN10MB (Ethernet)
-
+<h3><a name="dlt_en10mb-ethernet"></a>DLT_EN10MB (Ethernet)</h3>
 The Ethernet plugin allows you to control the source and destination MAC addresses.
 Additionaly, you can add, remove and edit 802.1q VLAN tag headers.
 
-
-#### Rewriting Source & Destination MAC addresses
-
+<h4><a name="rewriting-source-&-destination-mac-addresses"></a>Rewriting Source & Destination MAC addresses</h4>
 The most common layer 2 rewriting need is to change the source and destination 
 MAC addresses of packets so that they will be processed by the correct device.
 By using the `--enet-dmac` and `--enet-smac` options you can specify what the new
@@ -113,7 +138,7 @@ rewriting MAC addresses which are broadcast (FF:FF:FF:FF:FF:FF) or
 multicast (first octet is odd). 
 Rewriting broadcast/multicast MAC address break things like ARP and DHCP.
 
-#### 802.1q VLAN's
+<h4><a name="8021q-vlan's"></a>802.1q VLAN's</h4>
 
 *tcprewrite* also allows you to add or remove 802.1q VLAN tag information from
 ethernet frames. Removing the 802.1q tag information is as simple as specifying `--vlan=del`:
@@ -131,7 +156,7 @@ $ tcprewrite --enet-vlan=add --enet-vlan-tag=40 --enet-vlan-cfi=1 --enet-vlan-pr
 
 will set the VLAN tag to be 40, the CFI value to 1 and a VLAN priority of 4.
 
-### DLT_CHDLC (Cisco HDLC)
+<h3><a name="dlt_chdlc-cisco-hdlc"></a>DLT_CHDLC (Cisco HDLC)</h3>
 
 Cisco HDLC has two fields in the Layer 2 header: address and control. 
 Both can be set using this plugin:
@@ -140,7 +165,7 @@ Both can be set using this plugin:
 * `--hdlc-control`
 
 <br \>
-### DLT_USER0 (User Defined)
+<h3><a name="dlt_user0-user-defined"></a>DLT_USER0 (User Defined)</h3>
 
 The user defined DLT option allows you to create any DLT/Layer2 header 
 of your choosing by using the following two options:
@@ -149,8 +174,9 @@ of your choosing by using the following two options:
 * `--user-dlink` - Set packet layer 2 header
 
 <br \>
-## Rewriting Layer 3
 
+---
+<h2><a name="rewriting-layer-3"></a>Rewriting Layer 3</h2>
 As of version 3.4.2, *tcprewrite* supports both IPv4 and IPv6 addresses. There are a number
 of methods for rewriting IP addresses depending on your needs. When enabling a 
 layer 3 rewrite rule, *tcprewrite* will automagically re-calculate checksums for you, 
@@ -161,8 +187,7 @@ Not only do the following options edit the IP header, but in the case of IPv4,
 also modified ARP requests/replies to match as well.
 
 
-### Forcing Traffic Between Two Hosts
-
+<h3><a name="forcing-traffic-between-two-hosts"></a>Forcing Traffic Between Two Hosts</h3>
 Sometimes you have a pcap with a bunch of hosts and you want rewrite all the traffic to be 
 between two hosts or "endpoints". You can choose the IP addresses 
 (like 10.10.1.1 and 10.10.1.2) for these two hosts by using the `--endpoints` rule:
@@ -174,8 +199,7 @@ $ tcprewrite --endpoints=10.10.1.1:10.10.1.2 --cachefile=input.cache --infile=in
 Note that `--endpoints` requires a cache file and use of `--skipbroadcast` is highly recommended.
 
 
-### Randomizing IP Addresses
-
+<h3><a name="randomizing-ip-addresses"></a>Randomizing IP Addresses</h3>
 If you have a pcap that you want to give someone else without revealing 
 your IP addresses, then this may be what you're looking for. 
 Note that this feature only handles IP headers and ARP messages; it does not
@@ -191,8 +215,7 @@ $ tcprewrite --seed=423 --infile=input.pcap --outfile=output.pcap
 ```
 
 <br \>
-### Changing Networks via Pseudo-NAT, Source/Destination IP Map
-
+<h3><a name="changing-networks-via-pseudo-nat-sourcedestination-ip-map"></a>Changing Networks via Pseudo-NAT, Source/Destination IP Map</h3>
 Pseudo-NAT works very much like network address translation. 
 It allows you to map IP addresses in one subnet to IP addresses in another subnet.
 Each source and destination subnet is expressed in CIDR notation, and needn't be the
@@ -219,8 +242,7 @@ to apply different rules to the source and destination IP addresses in packets.
 `--srcipmap` and `--dstipmap` work just like `--pnat` and use the same 
 `<match_cidr>:<rewrite_cidr>,...` format.
 
-### Editing IPv4 TOS/DiffServ/ECN
-
+<h3><a name="editing-ipv4-tosdiffservecn"></a>Editing IPv4 TOS/DiffServ/ECN</h3>
 To change the TOS (now known as DiffServ/ECN) use the --tos flag to specify the new value.
 
 ```
@@ -229,7 +251,7 @@ $ tcprewrite --tos=50 --infile=input.pcap --outfile=output.pcap
 
 Would set the TOS byte in every IPv4 header to 50.
 
-### Editing IPv6 Traffic Class
+<h3><a name="editing-ipv6-traffic-class"></a>Editing IPv6 Traffic Class
 
 To change the Traffic Class field use the `--tclass` flag to specify the new value.
 
@@ -239,7 +261,7 @@ $ tcprewrite --tclass=33 --infile=input.pcap --outfile=output.pcap
 
 Would set the Traffic Class field in every IPv6 header to 33.
 
-### Editing IPv6 Flow Label
+<h3><a name="editing-ipv6-flow-label"></a>Editing IPv6 Flow Label</h3>
 
 To change the Flow Label field use the `--flowlabel` flag to specify the new value.
 
@@ -250,13 +272,13 @@ $ tcprewrite --flowlabel=67234 --infile=input.pcap --outfile=output.pcap
 Would set the Flow Label field in every IPv6 header to 67234.
 
 <br \>
-## Rewriting Layer 4
 
+---
+<h2><a name="rewriting-layer-4"></a>Rewriting Layer 4</h2>
 *tcprewrite* also supports some limited TCP/UDP editing. Whenever you edit the layer 4
 data of a packet, tcprewrite will automatically recalculate the appropriate checksums.
 
-### Re-Mapping Ports
-
+<h3><a name="re-mapping-ports"></a>Re-Mapping Ports</h3>
 Using tcprewrite, you can remap a TCP or UDP session from one port to another.
 One example may be to change all the HTTP traffic to run over port 8080 instead of 80. 
 To remap a port, use the `--portmap` flag.
@@ -267,8 +289,7 @@ $ tcprewrite --portmap=80:8080,22:8022 --infile=input.pcap --outfile=output.pcap
 
 would re-map TCP/UDP traffic running on 80 to be 8080 and traffic on port 22 to port 8022.
 
-### Forcing Checksum Calculation
-
+<h3><a name="forcing-checksum-calculation"></a>Forcing Checksum Calculation</h3>
 Many network cards support TCP/UDP/IP checksum offloading, so 
 if you capture traffic which was generated by the same system, the checksums will be incorrect.
 This can obviously cause problems later on when you try replaying the traffic.
@@ -280,8 +301,9 @@ $ tcprewrite --fixcsum --infile=input.pcap --outfile=output.pcap
 ```
 
 <br \>
-## Rewriting Layers 5-7
 
+---
+<h2><a name="rewriting-layers-5-7"></a>Rewriting Layers 5-7</h2>
 Often pcap's are truncated so some of the application data in the packet is missing.
 Depending on the device type that will be processing the traffic, the application 
 data may or may not be important, but having a full packet may be. Routers and 
@@ -315,9 +337,8 @@ $ tcprewrite --fixlen=del --infile=input.pcap --outfile=output.pcap
 When padding packets, their maximum size will be limited to the MTU value 
 (default is 1500 bytes) which can be over-ridden using the `--mtu` option.
 
-
-## Dealing with MTU problems
-
+---
+<h2><a name="dealing-with-mtu-problems"></a>Dealing with MTU problems</h2>
 Sometimes the maximum size of a frame you can send on an interface (MTU) is smaller 
 then some packets you need to send. Normally, *tcpreplay* will skip these packets 
 completely, but you have a few other options:
@@ -346,10 +367,12 @@ $ tcprewrite --fragroute=frag.cfg --infile=input.pcap --outfile=output.pcap
 ```
 This will cause tcprwrite to fragment any packet into 1400 byte chunks. Since IP fragmentation is done at the IP layer, we use a value smaller then the MTU (in this case assuming 1500 for ethernet) to make sure we have enough room for the ethernet and IPv4 headers. Of course, this won't help any non-IP frames, so you may have some packets which can't be sent in some situations.
 
-## Fragroute
+---
+<h2><a name="fragroute"></a>Fragroute</h2>
 
-### Overview
+<br />
 
+<h3><a name="overview2"></a>Overview</h3>
 As of Tcpreplay 3.3.0, tcprewrite integrates  Dug Song's fragroute engine. 
 Due to library constraints fragroute may or may not enabled in your binary. 
 Running `tcprewrite -V` will tell you. Due to limitations of the fragroute code, 
@@ -369,7 +392,7 @@ the following options:
 * ip6_qos <traffic-class> <flow-label>
 
 <br \>
-### Usage
+<h3><a name="usage"></a>Usage</h3>
 
 Basic usage to fragment all packets in a pcap file:
 

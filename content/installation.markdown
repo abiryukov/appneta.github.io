@@ -4,7 +4,7 @@ title:  "Installation"
 categories: tcpreplay content
 ---
 
-UNDER CONSTRUCTION - for now please go [here][legacy_wiki].
+<br />
 
 ---
 Simple directions for Unix users: 
@@ -16,6 +16,8 @@ Download the release tarball, extract and then...
 make
 sudo make install
 ```
+
+<br \>
 
 ---
 Build netmap feature
@@ -41,12 +43,6 @@ make
 sudo make install
 ```
 
-
-
-
-
-
-[legacy_wiki]:  http://tcpreplay.synfin.net
 [gplv3]:    http://www.gnu.org/licenses/gpl-3.0.html
 [nm]:       http://info.iet.unipi.it/~luigi/netmap/
 [flow]:     http://en.wikipedia.org/wiki/Traffic_flow_%28computer_networking%29

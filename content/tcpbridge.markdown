@@ -4,12 +4,21 @@ title:  "tcpbridge"
 categories: tcpreplay content
 ---
 
+<br />
+
+- [Overview](#overview)
+- [Notes](#notes)
+
+<br />
+
+---
+<h2><a name="overview"></a>Overview</h2>
 *tcpbridge* allows you to connect two network segments and bridge them. *tcpbridge* emulates 
 a learning bridge (it learns which MAC addresses are on each side in order to prevent 
 broadcast storms) and allows a variety of packet editing features in the same way as [tcprewrite].
 
-## Notes
-
+---
+<h2><a name="notes"></a>Notes</h2>
 1. *tcpbridge* works pretty well joining two ethernet segments.
 2. I haven't had much luck spanning wireless segments, 
 but this tends to be very OS/hardware/driver dependant
