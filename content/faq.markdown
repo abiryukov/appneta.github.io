@@ -116,38 +116,38 @@ Usually this occurs when trying us a pcap of small packets.
 For example, let's look at a pcap file with an average of 646 byte packets...
 
 ```
-# tcpreplay --preload-pcap -i eth7 --loop 500 -t --unique-ip --netmap smallFlows.pcap 
-Switching network driver to netmap bypass mode... done!
+# tcpreplay --preload-pcap -i eth0 --loop 500 -t --unique-ip --netmap smallFlows.pcap 
+Switching network driver for eth0 to netmap bypass mode... done!
 File Cache is enabled
 Actual: 7130500 packets (4608265500 bytes) sent in 3.08 seconds.
 Rated: 1197981408.4 Bps, 9583.85 Mbps, 1853670.63 pps
 Flows: 604500 flows, 157148.01 fps, 7121500 flow packets, 9000 non-flow
-Statistics for network device: eth7
+Statistics for network device: eth0
 	Attempted packets: 7130500
 	Successful packets: 7130500
 	Failed packets: 0
 	Truncated packets: 0
 	Retried packets (ENOBUFS): 0
 	Retried packets (EAGAIN): 0
-Switching network driver to normal mode... done!
+Switching network driver for eth0 to normal mode... done!
 ```
 ... and compare that with a similar test using a 77 byte average packet size.
 
 ```
-# tcpreplay --preload-pcap -i eth7 -l50000 -t --unique-ip --netmap tiny-packets.pcap 
-Switching network driver to netmap bypass mode... done!
+# tcpreplay --preload-pcap -i eth0 -l50000 -t --unique-ip --netmap tiny-packets.pcap 
+Switching network driver for eth0 to netmap bypass mode... done!
 File Cache is enabled
 Actual: 550000 packets (42600000 bytes) sent in 0.054122 seconds.
 Rated: 787110601.9 Bps, 6296.88 Mbps, 10162226.08 pps
 Flows: 100000 flows, 1847677.46 fps, 300000 flow packets, 250000 non-flow
-Statistics for network device: eth7
+Statistics for network device: eth0
 	Attempted packets:         550000
 	Successful packets:        550000
 	Failed packets:            0
 	Truncated packets:         0
 	Retried packets (ENOBUFS): 0
 	Retried packets (EAGAIN):  0
-Switching network driver to normal mode... done!
+Switching network driver for eth0 to normal mode... done!
 ``` 
 
 Here are some tricks/ideas you can use to make *tcpreplay* send traffic as fast as you wanted:   
@@ -267,20 +267,20 @@ Here is an example of *tcpreplay* on an i7 processor with an Intel 82599
 10GigE NIC. With this pcap file we achieve at near wire speed and 157K flows/sec.
 
 ```
-# tcpreplay --preload-pcap -i eth7 --loop 500 -t --unique-ip --netmap smallFlows.pcap 
-Switching network driver to netmap bypass mode... done!
+# tcpreplay --preload-pcap -i eth0 --loop 500 -t --unique-ip --netmap smallFlows.pcap 
+Switching network driver for eth0 to netmap bypass mode... done!
 File Cache is enabled
 Actual: 7130500 packets (4608265500 bytes) sent in 3.08 seconds.
 Rated: 1197981408.4 Bps, 9583.85 Mbps, 1853670.63 pps
 Flows: 604500 flows, 157148.01 fps, 7121500 flow packets, 9000 non-flow
-Statistics for network device: eth7
+Statistics for network device: eth0
 	Attempted packets: 7130500
 	Successful packets: 7130500
 	Failed packets: 0
 	Truncated packets: 0
 	Retried packets (ENOBUFS): 0
 	Retried packets (EAGAIN): 0
-Switching network driver to normal mode... done!
+Switching network driver for eth0 to normal mode... done!
 ```
 
 Note that the above example is closer to wire speed than it first appears. Average packet size
@@ -294,20 +294,20 @@ The next example is the same except limited to 9500Mbps with the `-M` option. As
 4.0 there is little overhead in using this option.
 
 ```
-# tcpreplay --preload-pcap -i eth7 -l 500 -M 9500 --unique-ip --netmap smallFlows.pcap 
-Switching network driver to netmap bypass mode... done!
+# tcpreplay --preload-pcap -i eth0 -l 500 -M 9500 --unique-ip --netmap smallFlows.pcap 
+Switching network driver for eth0 to netmap bypass mode... done!
 File Cache is enabled
 Actual: 7130500 packets (4608265500 bytes) sent in 3.08 seconds.
 Rated: 1187498663.2 Bps, 9499.98 Mbps, 1837450.38 pps
 Flows: 604500 flows, 155772.91 fps, 7121500 flow packets, 9000 non-flow
-Statistics for network device: eth7
+Statistics for network device: eth0
 	Attempted packets:         7130500
 	Successful packets:        7130500
 	Failed packets:            0
 	Truncated packets:         0
 	Retried packets (ENOBUFS): 0
 	Retried packets (EAGAIN):  0
-Switching network driver to normal mode... done!
+Switching network driver for eth0 to normal mode... done!
 ```
 
 When using pcap files with tiny packets, full wire rate is not achieved. The limiting
@@ -315,20 +315,20 @@ factor is the flows per second (fps). Notice that in the following example we ac
 fps and our packets per second (pps) rate has jumped dramatically.
 
 ```
-# tcpreplay --preload-pcap -i eth7 -l50000 -t --unique-ip --netmap tiny-packets.pcap 
-Switching network driver to netmap bypass mode... done!
+# tcpreplay --preload-pcap -i eth0 -l50000 -t --unique-ip --netmap tiny-packets.pcap 
+Switching network driver for eth0 to netmap bypass mode... done!
 File Cache is enabled
 Actual: 550000 packets (42600000 bytes) sent in 0.054122 seconds.
 Rated: 787110601.9 Bps, 6296.88 Mbps, 10162226.08 pps
 Flows: 100000 flows, 1847677.46 fps, 300000 flow packets, 250000 non-flow
-Statistics for network device: eth7
+Statistics for network device: eth0
 	Attempted packets:         550000
 	Successful packets:        550000
 	Failed packets:            0
 	Truncated packets:         0
 	Retried packets (ENOBUFS): 0
 	Retried packets (EAGAIN):  0
-Switching network driver to normal mode... done!
+Switching network driver for eth0 to normal mode... done!
 ```
 
 If anyone achieves better results or has 40GigE results, please share.

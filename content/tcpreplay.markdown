@@ -132,7 +132,7 @@ while the test is running.
 
 ```
 # tcpreplay -i eth0 -tK -l1000 --netmap smallFlows.pcap 
-Switching network driver to netmap bypass mode... done!
+Switching network driver for eth0 to netmap bypass mode... done!
 File Cache is enabled
 Actual: 14261000 packets (9216531000 bytes) sent in 7.07 seconds.
 Rated: 1193506409.4 Bps, 9548.05 Mbps, 1846746.34 pps
@@ -144,15 +144,16 @@ Statistics for network device: eth0
 	Truncated packets:         0
 	Retried packets (ENOBUFS): 0
 	Retried packets (EAGAIN):  0
-Switching network driver to normal mode... done!
+Switching network driver for eth0 to normal mode... done!
 ```
 
 To increase the *flows per second (fps)* you need to ensure that
-the IP addreses are unique for every loop iteration.
+the IP addreses are unique for every loop iteration by specifying the
+`--unique-ip` option.
 
 ```
 # tcpreplay -i eth0 -tK -l1000 --netmap --unique-ip smallFlows.pcap  
-Switching network driver to netmap bypass mode... done!
+Switching network driver for eth0 to netmap bypass mode... done!
 File Cache is enabled
 Actual: 14261000 packets (9216531000 bytes) sent in 7.07 seconds.
 Rated: 1193507027.6 Bps, 9548.05 Mbps, 1846747.29 pps
@@ -164,7 +165,27 @@ Statistics for network device: eth0
 	Truncated packets:         0
 	Retried packets (ENOBUFS): 0
 	Retried packets (EAGAIN):  0
-Switching network driver to normal mode... done!
+Switching network driver for eth0 to normal mode... done!
+```
+
+If you need to control the flows per second you can do so by
+trying different values of `--mbps` (or `-M`) option:
+
+```
+# tcpreplay -i eth0 -K -l1000 -M9000 --netmap --unique-ip smallFlows.pcap 
+Switching network driver for eth0 to netmap bypass mode... done!
+File Cache is enabled
+Actual: 14261000 packets (9216531000 bytes) sent in 8.01 seconds.
+Rated: 1124999450.7 Bps, 8999.99 Mbps, 1740743.57 pps
+Flows: 1209000 flows, 147574.43 fps, 14243000 flow packets, 18000 non-flow
+Statistics for network device: eth0
+	Attempted packets:         14261000
+	Successful packets:        14261000
+	Failed packets:            0
+	Truncated packets:         0
+	Retried packets (ENOBUFS): 0
+	Retried packets (EAGAIN):  0
+Switching network driver for eth0 to normal mode... done!
 ```
 
 <br \>
