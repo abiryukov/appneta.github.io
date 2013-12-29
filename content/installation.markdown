@@ -8,8 +8,8 @@ categories: tcpreplay content
 
 ---
 Simple directions for Unix users: 
-=================================  
-Download the release tarball, extract and then...
+--------------------------------- 
+[Download] the release tarball, extract and then...
 
 ```
 ./configure 
@@ -21,7 +21,7 @@ sudo make install
 
 ---
 Build netmap feature
-====================
+--------------------
 This feature will detect [netmap][nm]
 capable network drivers on Linux and BSD 
 systems. If detected, the network driver is bypassed for the execution 
@@ -46,3 +46,4 @@ sudo make install
 [gplv3]:    http://www.gnu.org/licenses/gpl-3.0.html
 [nm]:       http://info.iet.unipi.it/~luigi/netmap/
 [flow]:     http://en.wikipedia.org/wiki/Traffic_flow_%28computer_networking%29
+[Download]: download.html
