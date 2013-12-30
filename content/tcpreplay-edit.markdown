@@ -4,13 +4,8 @@ title:  "tcpreplay-edit"
 categories: tcpreplay content
 ---
 
-<br \>
-
 - [Overview](#overview)
 
-<br \>
-
----
 <h2><a name="overview"></a>Overview</h2>
 [tcpreplay] has evolved quite a bit over the years. In the 1.x days, it merely read packets and 
 sent then back on the wire. In 2.x, *tcpreplay* was enhanced significantly to add various 

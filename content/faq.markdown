@@ -52,43 +52,35 @@ categories: tcpreplay content
 	- [Other Documents](#other-documents)
 
 
-<br \>
 General Questions
 =================
 
----
 <h2><a name="how-should-tcpreplay-be-capitalized">Q:</a> How should Tcpreplay be capitalized?</h2>
 When refering to the Tcpreplay suite of tools (tcpreplay, tcpprep, tcprewrite, etc)
 then the 'T' is capitalized. When only referring to the tcpreplay standalone utility,
 then it's not. There is no such thing as 'TCPreplay' or 'TCP replay'.
 
 
----
 <h2><a name="where-do-i-get-tcpreplay">Q:</a> Where do I get Tcpreplay?</h2>
 Visit our [Downloads][] page.
 
 
----
 <h2><a name="how-do-i-install-tcpreplay">Q:</a> How do I install Tcpreplay?</h2>
 You must compile. Visit our [Installation][] page.
 
----
 <h2><a name="is-there-a-microsoft-windows-port">Q:</a> Is there a Microsoft Windows port?</h2>  
 Windows 2000 and better are supported under Cygwin. 
 In the near future expect native support Windows, (volunteers please). For more information, 
 please read the Win32Readme.txt file.
 
 
----
 <h2><a name="how-is-tcpreplay-licensed">Q:</a> How is Tcpreplay licensed?</h2>
 Tcpreplay is licensed under [GPLv3][gplv3]. For details see the docs/LICENSE file included 
 with the source code.
 
-<br \>
 Running Tcpreplay
 =================
 
----
 <h2><a name="does-tcpreplay-support-sending-traffic-to-a-server">Q:</a> Does tcpreplay support sending traffic to a server?</h2>  
 If by server you mean a daemon (Unix) or service (Windows) which listens on a port
 (a web or mail server would be common examples), then try *tcpliveplay*.
@@ -108,7 +100,6 @@ IP addresses, it may not be a valid SIP packet anymore. In such cases,
 you may want to try using *NetDude* to edit the payload of the packets.
 
 
----
 <h2><a name="why-doesnt-tcpreplay-send-traffic-as-fast-as-i-told-it-to">Q:</a> Why doesn't Tcpreplay send traffic as fast as I told it to?</h2>
 Try using [netmap][nm] drivers and the `--netmap` option.
 
@@ -162,7 +153,6 @@ Here are some tricks/ideas you can use to make *tcpreplay* send traffic as fast 
 * Often using a combination of the above options will allow you to reach the speeds you're trying to hit.   
 
 
----
 <h2><a name="can-i-send-packets-on-the-same-computer-running-tcpreplay">Q:</a> Can I send packets on the same computer running tcpreplay?</h2>
 Generally speaking no. When *tcpreplay* sends packets, it injects 
 them between the TCP/IP stack of the system and the device driver of the network card. 
@@ -173,12 +163,10 @@ Running *tcpreplay* in the virtual machine (guest) would allow packets to be see
 the host operating system.
 
 
----
 <h2><a name="older-versions-of-tcpreplay-allowed-me-to-edit-packets-what-happened">Q:</a> Older versions of tcpreplay allowed me to edit packets. What happened?</h2>
 Use *tcpreplay-edit* or *tcprewrite*.
 
 
----
 <h2><a name="why-do-i-need-to-use-tcpprep-to-create-cache-files-can't-this-be-done-in-tcprewrite">Q:</a> Why do I need to use tcpprep to create cache files? Can't this be done in tcprewrite?</h2>
 Most of the *tcpprep* modes take a holistic view of a pcap and looks at all the packets 
 before deciding which IP's are servers and which are clients. This requires the pcap file 
@@ -190,7 +178,6 @@ it made sense to separate it into a standalone utility so that the processing ca
 be leveraged across multiple rewrites and the actual packet sending.
 
 
----
 <h2><a name="why-is-tcpreplay-not-sending-all-the-packets">Q:</a> Why is tcpreplay not sending all the packets?</h2>
 Every now and then, someone emails the tcpreplay-users list, asking if there is a bug in tcpreplay 
 which causes it not to send all the packets. This usually happens when the user uses the `-t` 
@@ -223,7 +210,6 @@ miss packets even at very low rates (1Mbps).
 Disabling this feature caused the NIC to stop dropping packets. This is not a bug in *tcpreplay*.
 
 
----
 <h2><a name="why-are-tcpreplay-timings-all-messed-up">Q:</a> Why are tcpreplay timings all messed up?</h2>
 Occasionally someone complains about timings to be "messed up". Usually this seems to
 be caused by a pcap which contains packets with non-sensical timestamps. 
@@ -233,14 +219,12 @@ in hardware, but then split traffic into multiple queues. They are presented to 
 in a different order than they arrived.
 
 
----
 <h2><a name="does-tcpreplay-support-dual-nic's-like-tomahawk">Q:</a> Does tcpreplay support dual NIC's like Tomahawk?</h2>
 Yes! *tcpreplay* has for many years supported high-speed playback using two interfaces
 (long before [Tomahawk][tomahawk] existed). For more information about how traffic is split between
 the two interfaces, see the *tcpprep* manpage.
 
 
----
 <h2><a name="can-tcpreplay-read-gzipbzip2-compressed-files">Q:</a> Can tcpreplay read gzip/bzip2 compressed files?</h2>
 Yes, but not directly. Since *tcpreplay* can read data via STDIN, you can decompress the file on the fly like this:
 
@@ -252,7 +236,6 @@ Note that decompressing on the fly will require additional CPU time and will lik
 performance of *tcpreplay*.
 
 
----
 <h2><a name="how-fast-can-tcpreplay-send-packets">Q:</a> How fast can tcpreplay send packets?</h2>
 First, if performance is important to you, then upgrading to tcpreplay 4.x is worthwhile since it is more optimized then
 3.x series. After that, there are a number of variables which effect performance, 
@@ -334,7 +317,6 @@ Switching network driver for eth0 to normal mode... done!
 If anyone achieves better results or has 40GigE results, please share.
 
 
----
 <h2><a name="how-can-i-make-tcpreplay-run-even-faster">Q:</a> How can I make tcpreplay run even faster?</h2>
 Profiling tcpreplay has shown that a significant amount of time is spent writing packets to the network. Hence, your OS kernel 
 implementation of writing to raw sockets is one of the most important aspects since that is where tcpreplay spends most of it's time.
@@ -369,9 +351,7 @@ In no particular order:
  6. If you use Linux use a newer kernel version. Ususally you want a kernel version higher than 2.6.18, which will 
  have [NAPI][napi] support, which has significantly enhanced I/O.
 
-<br \>
 
----
 <h2><a name="does-tcpreplay-support-endace-dag-cards">Q:</a> Does tcpreplay support Endace DAG cards?</h2>
 By default, *tcpreplay* does not support DAG cards. However, [Endace][endace] has released 
 a custom version of tcpreplay which does support their cards. 
@@ -379,7 +359,6 @@ Please note that the Tcpreplay developers do not support this custom version of 
 so if you have any questions, please contact Endace.
 
 
----
 <h2><a name="can-i-use-non-pcap-capture-files">Q:</a> Can I use non-pcap capture files?</h2>
 It turns out that there are quite a few capture file formats other then pcap.
 If you have a capture file created by a tool which uses one of these other formats (like Solaris snoop) 
@@ -388,15 +367,12 @@ you can convert it to pcap format by using [Wireshark's][wireshark] tshark tool.
 ```
 tshark -r blah.snoop -w blah.pcap
 ```
-<br />
 
----
 <h2><a name="does-tcpreplay-support-pcap-ngntar-files">Q:</a> Does Tcpreplay support Pcap-Ng/NTAR files?</h2>
 Yes. The Tcpreplay suite uses [libpcap][tcpdump] for reading & writing pcap files. 
 If you have libpcap 1.1.0 or higher, then tcpreplay, tcprewrite, etc can read pcap-ng files. If you have an older version of libpcap, you should upgrade to the latest version as earlier versions of libpcap have bugs with pcap-ng files.
 
 
----
 <h2><a name="can-tcpreplay-send-packets-over-wifi">Q:</a> Can tcpreplay send packets over WiFi?</h2>
 This turns out to be very OS/hardware dependent, but in many cases, the answer is yes. 
 In order for things to work, you generally must do the following:
@@ -405,9 +381,7 @@ In order for things to work, you generally must do the following:
 * Your pcap files need to be DLT_EN10MB (Ethernet) and have a valid 803.2 header
 * The source MAC of the packets need to match the MAC of your WiFi card
 
-<br />
 
----
 <h2><a name="why-doesnt-my-application-see-packets-replayed-over-loopback">Q:</a> Why doesn't my application see packets replayed over loopback?</h2>
 Most users are surprised when they try replaying UDP traffic over loopback that the listening daemon 
 never sees the traffic. This turns out to be a limitation of the loopback interface on many operating systems. 
@@ -416,7 +390,6 @@ Since the loopback interface doesn't use an Ethernet L2 header, the IP stack of 
 operating system is unable to parse the packet and deliver it to the listening daemon.
 
 
----
 <h2><a name="can-i-use-iptablestraffic-control-with-tcpreplay">Q:</a> Can I use IPTables/Traffic Control with tcpreplay?</h2>
 You can not use iptables/tc on the same box as you run tcpreplay. 
 The only way to use IPTables or Traffic Control (tc) with tcpreplay is to run tcpreplay on a different 
@@ -428,19 +401,16 @@ invisible to iptables/tc.
 Compiling Tcpreplay
 ===================
   
----
 <h2><a name="are-there-binaries-available-for-xxx-operating-system">Q:</a> Are there binaries available for XXX operating system?</h2>
 Maybe. We do not release binaries for ANY operating system. 
 Many operating systems like Linux, *BSD, Solaris and OS X have teams which package open source applications 
 like *tcpreplay* and release them in their package format (RPM, BSD/Mac ports, SunFreeware, etc).  
 
 
----
 <h2><a name="what-if-i-ask-you-really-nicely-to-build-a-binary-for-me">Q:</a> What if I ask you really nicely to build a binary for me?</h2>
 You can always ask, but we will probably ignore you.
 
 
----
 <h2><a name="unable-to-find-a-supported-method-to-send-packets--please-upgrade-your-libpcap-or-enable-libdnet">Q:</a> Unable to find a supported method to send packets.  Please upgrade your libpcap or enable libdnet</h2>
 Tcpreplay can use a variety of API's/libraries to send packets: BSD's BPF, Linux's PF_PACKET, libpcap and libdnet.
 If you're not running on a platform which supports BPF or PF_PACKET, you'll need either a recent version of 
@@ -454,7 +424,6 @@ you're not running on Linux or *BSD and you want to use tcpbridge.
 Note: Tcpreplay no longer supports libnet!
 
 
----
 <h2><a name="tcpedit_stubdef-command-not-found">Q:</a> tcpedit_stub.def: Command not found</h2>
 
 ```
@@ -473,7 +442,6 @@ The problem is that you do not have [GNU Autogen][autogen] installed on your sys
 Either install autogen or download one of the source tarballs.
 
 
----
 <h2><a name="tcpreplay_optsh723-error-#error-option-template-version-mismatches-autooptsoptionsh-header">Q:</a> tcpreplay_opts.h:72:3: error: #error option template version mismatches autoopts/options.h header</h2>
 You're building from [GitHub][github] and the version of Autogen/AutoOpts? installed on your system is
 different from the 
@@ -484,7 +452,6 @@ version mismatch with the tearoff.
 The solution is to use: `./configure --disable-local-libopts --disable-libopts-install`
 
 
----
 <h2><a name="issues-with-autogenlibopts">Q:</a> Issues with autogen/libopts</h2>
 The Tcpreplay suite uses the GNU Autogen/libops library. 
 This makes development much easier, but not without some cost. Basically, Autogen/libopts 
@@ -514,37 +481,30 @@ make[3]: *** [tcpedit.o] Error 1
 The good news is that there is an easy fix: `./configure --enable-local-libopts`
 
 
----
 <h2><a name="problems-with-linking-under-recent-fedora-coreredhat">Q:</a> Problems with linking under recent Fedora Core/RedHat</h2>
 Newer versions of Fedora Core and Red Hat ES/WS do not ship static libraries at all and only 
 have dynamic libraries. If you wish to compile *tcpreplay* from source, you will need to pass the 
 `--enable-dynamic-link` to configure in order for *tcpreplay* to link to them.
 
 
-<br \>
-
 Common Errors
 =============
 
----
 <h2><a name="unable-to-send-packet-error-with-pcap_injectpacket-#10-send-message-too-long">Q:</a> Unable to send packet: Error with pcap_inject(packet #10): send: Message too long</h2>
 There is a bug in OS X (at least up to 10.4.9) which causes problems for 
 Ethernet frames > 1500 bytes from being sent when you spoof source MAC addresses (like tcpreplay/tcpbridge does).
 Apple fixed this in 10.5 (Leopard). Currently there is no work around.
 
 
----
 <h2><a name="can't-open-eth0-libnet_select_device-can't-find-interface-eth0">Q:</a> Can't open eth0: libnet\_select\_device(): Can't find interface eth0</h2>
 Generally this occurs when the interface (eth0 in this example) is not up or 
 doesn't have an IP address assigned to it.
 
 
----
 <h2><a name="can't-open-eth0-uid-0">Q:</a> Can't open eth0: UID != 0</h2>
 Tcpreplay requires that you run it as root.
 
 
----
 <h2><a name="100000-write-attempts-failed-from-full-buffers-and-were-repeated">Q:</a> 100000 write attempts failed from full buffers and were repeated</h2>
 When *tcpreplay* displays a message like "100000 write attempts failed from full buffers and were repeated", 
 this usually means the kernel buffers were full and it had to wait until memory was available. 
@@ -552,7 +512,6 @@ This is can occur when replaying files as fast as possible with the `-t` option.
 See the tuning OS section in this document for suggestions on solving this problem.
 
 
----
 <h2><a name="unable-to-process-testcache-cache-file-version-mismatch">Q:</a> Unable to process test.cache: cache file version mismatch</h2>
 Cache files generated by *tcpprep* and read by *tcpreplay* are versioned to 
 allow enhancements to the cache file format.
@@ -569,14 +528,12 @@ and *tcpprep* to read/write the cache files. Cache file versions match the follo
 bug which broke cache file compatibility between big and little endian systems.
 
 
----
 <h2><a name="skipping-sll-loopback-packet">Q:</a> Skipping SLL loopback packet</h2>
 Your capture file was created on Linux with the 'any' parameter which then captured a packet on the 
 loopback interface. However, tcpreplay doesn't have enough information to actual send the packet,
 so it skips it. Specifying a destination and source MAC address (-D and -S) will allow tcpreplay to send these packets.
 
 
----
 <h2><a name="packet-length-8892-is-greater-then-mtu-skipping-packet">Q:</a> Packet length (8892) is greater then MTU; skipping packet</h2>
 The packet length (in this case 8892 bytes) is greater then the maximum transmition unit (MTU) on the outgoing interface. 
 Tcpreplay must skip the packet. Alternatively, you can specify the *tcpreplay-edit* `--mtu-trunc`
@@ -584,7 +541,6 @@ option packets will be truncated to the MTU size, the checksums will be fixed an
 may impact performance.
 
 
----
 <h2><a name="tcpreplay-doesn't-send-entire-packettcprewrite-truncates-packets">Q:</a> tcpreplay doesn't send entire packet/tcprewrite truncates packets</h2>
 You won't see any error from *tcpreplay*, but sometimes you'll open a pcap file in 
 Ethereal/Wireshark? and notice that a packet is something like 400 bytes but tcpreplay says it only sent 100 bytes. 
@@ -627,7 +583,6 @@ xxd fixed.pcap | head -3
 ```
 
 
----
 <h2><a name="tcpreplay-is-sending-packets-out-of-order">Q:</a> tcpreplay is sending packets out of order</h2>
 This isn't a problem with tcpreplay, but rather with the receiving network card/driver. 
 We've seen an example Broadcom 10G network cards using "multi_mode" prevents tcpdump/Wireshark 
@@ -636,15 +591,12 @@ Apparently this was turned on by default as of Linux kernel v2.6.24.
 
 As stated earlier, this can also be caused by hardware timestamping network adapters.
 
----
 Use Cases for Tcpreplay
 ======================= 
 
----
 <h2><a name="external-use-cases">Q:</a> External Use Cases</h2>
 * Renaud Bidou's paper [How to Test an IDS][howtoids] talks about using *tcpreplay*
 
----
 <h2><a name="other-documents">Q:</a> Other Documents</h2>
 * [RFC 2544][rfc2544] - Benchmarking Methodology for Network Interconnect Devices
 

@@ -4,8 +4,6 @@ title:  "tcpprep"
 categories: tcpreplay content
 ---
 
-<br />
-
 - [Overview](#overview)
 - [Details](#details)
 - [Basic Usage](#basic-usage)
@@ -37,9 +35,6 @@ categories: tcpreplay content
 - [Non-IP Traffic](#non-ip-traffic)
 
 
-<br \>
-
----
 <h2><a name="overview"></a>Overview</h2>
 *tcpprep* is the pcap pre-processor for [tcpreplay] and [tcprewrite]. 
 The purpose of *tcpprep* is to create a cache file which is used to "split" traffic
@@ -48,7 +43,6 @@ use tcpreplay with two NIC's, then tcpprep is what decides which interface each 
 By using a seperate process to generate cache files, tcpreplay can send packets at a much higher 
 rate then if it had to do the calculations to split traffic itself.
 
----
 <h2><a name="details"></a>Details</h2>
 Depending on the contents of the pcap and where you are replaying, you will want to 
 split traffic differently. The most important thing to remember, is that you want to 
@@ -56,7 +50,6 @@ make sure that the device(s) under test (DUT) between the two NIC's see the traf
 so that a client connecting to a server will go through the DUT one way, and the responses 
 will go through the DUT the other way.
 
----
 <h2><a name="basic-usage"></a>Basic Usage</h2>
 *tcpprep* supports multiple "modes" of operation. Each mode uses different logic to split 
 traffic differently. For example, if you want to pass traffic through a router, then router 
@@ -107,7 +100,6 @@ $ tcpprep --auto=bridge --pcap=input.pcap --cachefile=input.cache --ratio=3.5
 
 Note: The --ratio option is valid for all automatic processing modes.
 
----
 <h2><a name="autorouter"></a>Auto/Router</h2>
 In Auto/Router mode hosts are first ranked as client or server using the same method as in Auto/Bridge mode. Then each host is placed in a small subnet which is expanded until either all the unknown hosts are included or the maximum newtork size is reached. This works best when clients and servers are on diffierent networks. The default starting network size is a /30 (2 valid IP addresses) and the maximum network is a /8 (Class A with over 16 million addresses). The following images hopefully better explain this process:
 
@@ -143,8 +135,6 @@ Auto/Client mode works just like Auto/Bridge mode, but IP addresses which have n
 $ tcpprep --auto=client --pcap=input.pcap --cachefile=input.cache
 ```
 
-<br \>
----
 <h2><a name="autoserver"></a>Auto/Server</h2>
 Auto/Server mode works just like Auto/Bridge mode, but IP addresses which have not been
 classified as either client or server after the initial ranking are classified as servers.
@@ -153,7 +143,6 @@ classified as either client or server after the initial ranking are classified a
 $ tcpprep --auto=server --pcap=input.pcap --cachefile=input.cache
 ```
 
-<br \>
 <h3><a name="cidr"></a>CIDR</h3>
 CIDR mode unlike the Auto/* modes does not use any automatic ranking system to classify
 IP addresses. Instead, it requires the user to specify on or more networks in CIDR notation
@@ -163,7 +152,6 @@ which contain servers.
 $ tcpprep --cidr=10.0.0.0/8,172.16.0.0/12 --pcap=input.pcap --cachefile=input.cache
 ```
 
-<br \>
 <h3><a name="regex"></a>Regex</h3>
 Regex mode works like CIDR mode, except that instead of providing a list of CIDR's, 
 the user provides a regex which matches the source IP of the servers. In this case any 
@@ -173,7 +161,6 @@ IP starting with 10. or 20.
 $ tcpprep --regex="(10|20)\..*" --pcap=input.pcap --cachefile=input.cache
 ```
 
-<br \>
 <h3><a name="port"></a>Port</h3>
 
 Port mode is used when you want to use the source and destination port of TCP/UDP packets
@@ -186,7 +173,6 @@ man page for details) by specifying --services <file>.
 $ tcpprep --port --services=/etc/services --pcap=input.pcap --cachefile=input.cache
 ```
 
-<br \>
 <h3><a name="mac"></a>MAC</h3>
 
 MAC address mode is used when you want to split traffic based on the source MAC address 
@@ -198,7 +184,6 @@ comma delimited format.
 $ tcpprep --mac=00:21:00:55:23:AF,00:45:90:E0:CF:A2 --pcap=input.pcap --cachefile=input.cache
 ```
 
-<br \>
 <h3><a name="skip-packets"></a>Skip Packets</h3>
 
 Instead of marking a packet as client/server, it can also mark the packet to be skipped
@@ -218,7 +203,6 @@ Only process packets with a matching source IP in the networks: 10.0.0.0/8 and 1
 $ tcpprep --include=S:10.0.0.0/8,192.168.0.0/16 --pcap=input.pcap --cachefile=input.cache <other args>
 ```
 
-<br \>
 <h4><a name="destination-ip-match"></a>Destination IP Match</h4>
 
 Only process packets with a matching destination IP in the networks: 10.0.0.0/8 and 192.168.0.0/16:
@@ -227,7 +211,6 @@ Only process packets with a matching destination IP in the networks: 10.0.0.0/8 
 $ tcpprep --include=D:10.0.0.0/8,192.168.0.0/16 --pcap=input.pcap --cachefile=input.cache <other args>
 ```
 
-<br \>
 <h4><a name="both-ip-match"></a>Both IP Match</h4>
 
 Only process packets which both source and destination IP matches the networks:
@@ -237,7 +220,6 @@ Only process packets which both source and destination IP matches the networks:
 $ tcpprep --include=B:10.0.0.0/8,192.168.0.0/16 --pcap=input.pcap --cachefile=input.cache <other args>
 ```
 
-<br \>
 <h4><a name="either-ip-match"></a>Either IP Match</h4>
 
 Only process packets which either the source or destination IP matches the networks:
@@ -247,7 +229,6 @@ Only process packets which either the source or destination IP matches the netwo
 $ tcpprep --include=E:10.0.0.0/8,192.168.0.0/16 --pcap=input.pcap --cachefile=input.cache <other args>
 ```
 
-<br \>
 <h4><a name="packet-number-match"></a>Packet Number Match</h4>
 
 Only process packets numbered 1 thru 5, 9, 15 and 72 until the end of the file:
@@ -256,7 +237,6 @@ Only process packets numbered 1 thru 5, 9, 15 and 72 until the end of the file:
 $ tcpprep --include=P:1-5,9,15,72- --pcap=input.pcap --cachefile=input.cache <other args>
 ```
 
-<br \>
 <h4><a name="bpf-filter-match"></a>BPF Filter Match</h4>
 
 Only process packets which match the BPF filter: tcp port 22
@@ -265,7 +245,6 @@ Only process packets which match the BPF filter: tcp port 22
 $ tcpprep --include=F:"tcp port 22" --pcap=input.pcap --cachefile=input.cache <other args>
 ```
 
-<br \>
 <h3><a name="exclude"></a>Exclude</h3>
 
 Skip any packets which match the filter specified by the --exclude flag.
@@ -278,7 +257,6 @@ Only process packets which don't match the source IP in the networks: 10.0.0.0/8
 $ tcpprep --exclude=S:10.0.0.0/8,192.168.0.0/16 --pcap=input.pcap --cachefile=input.cache <other args>
 ```
 
-<br \>
 <h4><a name="destination-ip-negative-match"></a>Destination IP Negative Match</h4>
 
 Only process packets which don't match the destination IP in the networks:
@@ -288,7 +266,6 @@ Only process packets which don't match the destination IP in the networks:
 $ tcpprep --exclude=D:10.0.0.0/8,192.168.0.0/16 --pcap=input.pcap --cachefile=input.cache <other args>
 ```
 
-<br \>
 <h4><a name="both-ip-negative-match"></a>Both IP Negative Match</h4>
 
 Only process packets which neither source and destination IP matches the networks:
@@ -315,9 +292,6 @@ Do not process packets numbered 1 thru 5, 9, 15 and 72 until the end of the file
 $ tcpprep --exclude=P:1-5,9,15,72- --pcap=input.pcap --cachefile=input.cache <other args>
 ```
 
-<br \>
-
----
 <h2><a name="other-options"></a>Other Options</h2>
 
 <h3><a name="comments"></a>Comments</h3>
@@ -333,7 +307,6 @@ $ tcpprep <args> --pcap=input.pcap --cachefile=input.cache --comment="This is ou
 $ tcpprep --print-comment=input.cache
 ```
 
-<br \>
 <h3><a name="detailed-info"></a>Detailed Info</h3>
 
 *tcpprep* also allows you to view statistical information as well as detailed per-packet data.
@@ -350,9 +323,6 @@ To view per-packet data, use the --print-info flag:
 $ tcpprep --print-info=input.cache
 ```
 
-<br \>
-
----
 <h2><a name="non-ip-traffic"></a>Non-IP Traffic</h4>
 Many of tcpprep's modes rely on IP address information in the IPv4 header to
 determine wether the packet was sent by a "client" or "server". Of course, not all

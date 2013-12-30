@@ -4,8 +4,6 @@ title:  "tcpliveplay"
 categories: tcpreplay content
 ---
 
-<br />
-
 - [Overview](#overview)
 - [Design Overview](#design-overview)
 	- [Successful vs. Unsuccessful Replays?](#successful-vs-unsuccessful-replays)
@@ -21,7 +19,6 @@ categories: tcpreplay content
 *Email: tcpliveplay at gmail.com*    
 *Updated: Dec. 28, 2013*   
 
----
 <h2><a name="overview"></a>Overview</h2>
 
 This tool, *tcpliveplay* formerly called ‘New Conn’, was initially started as a project
@@ -34,7 +31,6 @@ specific TCP packet sequence. So I provide this tool as a solution for those
 who wish to protect their network against such vulnerabilities. It is able to replay
 TCP captured packets using new TCP connections against any device the user chooses.
 
----
 <h2><a name="design-overview"></a>Design Overview</h2>
 
 *tcpliveplay* is able to replay only TCP packets. The tool is only able to replay 
@@ -67,7 +63,6 @@ option because it may lead to completing the replay successfully. Note that the 
 the packet captures are, the more likely there will be a possibility of changed behavior 
 from the remote host.
 
----
 <h2><a name="usage"></a>Usage</h2>
 
 Use the following specific syntax to replay a TCP capture:
@@ -116,14 +111,12 @@ This tool can only replay TCP packet captures that contain one TCP flow. Future
 improvements will allow users to replay captures that contain multiple TCP connections 
 at the same time.
 
----
 <h2><a name="supported-os's"></a>Supported OS's</h2>
 
 The current state of the tool is only supported on Linux environments. 
 The tool will soon be improved to support the other platforms which the
 Tcpreplay suite supports.
 
----
 <h2><a name="fresh-install-guide"></a>Fresh Install Guide</h2>
 
 If you experience problems installing the Tcpreplay suite with this tool, 
@@ -155,8 +148,6 @@ that may help you install it successfully:
     * `./configure`
     * make && sudo make install
 
-<br \>
----
 <h2><a name="examples-of-successful-run"></a>Examples of Successful Run</h2>
 
 ```
@@ -212,8 +203,6 @@ Sending Local Packet...............	[11]
 ----------------------------------------------------------
 ```
 
-<br \>
----
 <h2><a name="example-of-unsuccessful-run"></a>Example of Unsuccessful Run</h2>
 
 ```
@@ -303,8 +292,6 @@ Sending Local Packet...............	[7]
 ----------------------------------------------------------
 ```
 
-<br \>
----
 <h2><a name="credits-&-thanks"></a>Credits & Thanks</h2>
 
 Thanks to Aaron Turner for providing extensive support throughout d

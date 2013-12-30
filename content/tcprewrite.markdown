@@ -4,8 +4,6 @@ title:  "tcprewrite"
 categories: tcpreplay content
 ---
 
-<br />
-
 - [Overview](#overview)
 - [Basic Usage](#basic-usage)
 	- [Direction & Selection](#direction-&-selection)
@@ -32,16 +30,12 @@ categories: tcpreplay content
 	- [Overview](#overview2)
 	- [Usage](#usage)
 
-<br />
-
----
 <h2><a name="overview"></a>Overview</h2>
 In version 3.0, all of the packet editing functionality in [tcpreplay] was moved
 to [tcprewrite]. In 3.4.1 this editing functionality was re-introduced in *tcpreplay*
 with the creation of [tcpreplay-edit]. Hence, all the options listed below are valid
 for both *tcprewrite* and *tcpreplay-edit*.
 
----
 <h2><a name="basic-usage"></a>Basic Usage</h2>
 Running *tcprewrite* requires you to provide it an input pcap file and the name 
 of the output pcap file (which will be overwritten).
@@ -65,7 +59,6 @@ cache files with different processing rules for multiple passes of *tcprewrite*.
 
 To specify a *tcpprep cache file* to use during processing, use the `--cachefile` option.
 
----
 <h2><a name="rewriting-layer-2"></a>Rewriting Layer 2</h2>
 *tcprewrite* supports a lot of Layer 2 rewriting options to help you modify packets so
 that traffic can flow through switches, firewalls, routers, IPS's and many other
@@ -164,7 +157,6 @@ Both can be set using this plugin:
 * `--hdlc-address`
 * `--hdlc-control`
 
-<br \>
 <h3><a name="dlt_user0-user-defined"></a>DLT_USER0 (User Defined)</h3>
 
 The user defined DLT option allows you to create any DLT/Layer2 header 
@@ -173,9 +165,6 @@ of your choosing by using the following two options:
 * `--user-dlt` - Set pcap DLT type
 * `--user-dlink` - Set packet layer 2 header
 
-<br \>
-
----
 <h2><a name="rewriting-layer-3"></a>Rewriting Layer 3</h2>
 As of version 3.4.2, *tcprewrite* supports both IPv4 and IPv6 addresses. There are a number
 of methods for rewriting IP addresses depending on your needs. When enabling a 
@@ -214,7 +203,6 @@ in different values for the IP addresses for the same input pcap.
 $ tcprewrite --seed=423 --infile=input.pcap --outfile=output.pcap
 ```
 
-<br \>
 <h3><a name="changing-networks-via-pseudo-nat-sourcedestination-ip-map"></a>Changing Networks via Pseudo-NAT, Source/Destination IP Map</h3>
 Pseudo-NAT works very much like network address translation. 
 It allows you to map IP addresses in one subnet to IP addresses in another subnet.
@@ -251,7 +239,7 @@ $ tcprewrite --tos=50 --infile=input.pcap --outfile=output.pcap
 
 Would set the TOS byte in every IPv4 header to 50.
 
-<h3><a name="editing-ipv6-traffic-class"></a>Editing IPv6 Traffic Class
+<h3><a name="editing-ipv6-traffic-class"></a>Editing IPv6 Traffic Class</h3>
 
 To change the Traffic Class field use the `--tclass` flag to specify the new value.
 
@@ -271,9 +259,6 @@ $ tcprewrite --flowlabel=67234 --infile=input.pcap --outfile=output.pcap
 
 Would set the Flow Label field in every IPv6 header to 67234.
 
-<br \>
-
----
 <h2><a name="rewriting-layer-4"></a>Rewriting Layer 4</h2>
 *tcprewrite* also supports some limited TCP/UDP editing. Whenever you edit the layer 4
 data of a packet, tcprewrite will automatically recalculate the appropriate checksums.
@@ -300,9 +285,6 @@ Note, *tcprewrite* will automatically fix checksums when editing packets.
 $ tcprewrite --fixcsum --infile=input.pcap --outfile=output.pcap
 ```
 
-<br \>
-
----
 <h2><a name="rewriting-layers-5-7"></a>Rewriting Layers 5-7</h2>
 Often pcap's are truncated so some of the application data in the packet is missing.
 Depending on the device type that will be processing the traffic, the application 
@@ -337,7 +319,6 @@ $ tcprewrite --fixlen=del --infile=input.pcap --outfile=output.pcap
 When padding packets, their maximum size will be limited to the MTU value 
 (default is 1500 bytes) which can be over-ridden using the `--mtu` option.
 
----
 <h2><a name="dealing-with-mtu-problems"></a>Dealing with MTU problems</h2>
 Sometimes the maximum size of a frame you can send on an interface (MTU) is smaller 
 then some packets you need to send. Normally, *tcpreplay* will skip these packets 
@@ -367,10 +348,7 @@ $ tcprewrite --fragroute=frag.cfg --infile=input.pcap --outfile=output.pcap
 ```
 This will cause tcprwrite to fragment any packet into 1400 byte chunks. Since IP fragmentation is done at the IP layer, we use a value smaller then the MTU (in this case assuming 1500 for ethernet) to make sure we have enough room for the ethernet and IPv4 headers. Of course, this won't help any non-IP frames, so you may have some packets which can't be sent in some situations.
 
----
 <h2><a name="fragroute"></a>Fragroute</h2>
-
-<br />
 
 <h3><a name="overview2"></a>Overview</h3>
 As of Tcpreplay 3.3.0, tcprewrite integrates  Dug Song's fragroute engine. 
@@ -391,7 +369,6 @@ the following options:
 * ip6_opt [route <segments> <ip6-addr> ...] | [raw <type> <byte stream>]
 * ip6_qos <traffic-class> <flow-label>
 
-<br \>
 <h3><a name="usage"></a>Usage</h3>
 
 Basic usage to fragment all packets in a pcap file:

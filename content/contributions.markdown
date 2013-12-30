@@ -15,11 +15,8 @@ installing **git** and executing:
 git clone git@github.com:appneta/tcpreplay.git
 ```
 
-<br />
+## How To Contribute
 
----
-How To Contribute
-=================
 It's easy. Basically you...
 
 * [Set up git][git]
@@ -27,10 +24,8 @@ It's easy. Basically you...
 * Edit (we that you create a branch per issue)
 * [Send a PR][pr]
 
-<br />
+### Details:
 
-Details:
---------
 You will find that you will not be able to contribute to the Tcpreplay project directly if you
 use clone the appneta/tcpreplay repo. If you believe that you may someday contribute to the
 repository, GitHub provides an innovative approach. Forking the @appneta/tcpreplay repository
@@ -54,8 +49,7 @@ each feature or bug fix
 We will review and possibly discuss the changes with you through GitHub services. 
 If we accept the submission, it will instantly be applied to the production **master** branch.
 
-Additional Information
-======================
+## Additional Information
 Please visit our [wiki](http://tcpreplay.appneta.com).
 
 or visit our [developers wiki](https://github.com/appneta/tcpreplay/wiki)

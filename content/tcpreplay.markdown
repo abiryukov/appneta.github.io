@@ -4,17 +4,12 @@ title:  "tcpreplay"
 categories: tcpreplay content
 ---
 
-<br />
-
 - [Overview](#overview)
 - [Basic usage](#basic-usage)
 - [Examples](#examples)
 - [Advanced Usage](#advanced-usage)
 	- [Testing Routers or Switches](#testing-routers-or-switches)
 
-<br \>
-
----
 <h2><a name="overview"></a>Overview</h2>
 
 *tcpreplay* has evolved quite a bit over the years. In the 1.x days, it merely read packets and sent 
@@ -30,9 +25,6 @@ performance. Essentially tcpreplay is intended to be fast, and all options are d
 work at wire rates. Options that may affect performance such as run-time packet editing have
 been moved to [tcpreplay-edit][].
 
-<br \>
-
----
 <h2><a name="basic-usage"></a>Basic usage</h2>
 
 To replay a given pcap as it was captured all you need to do is specify the
@@ -42,9 +34,6 @@ pcap file and the interface to send the traffic out interface `eth0`:
 # tcpreplay -i eth0 sample.pcap
 ```
 
-<br \>
-
----
 <h2><a name="examples"></a>Examples</h2>
 The following examples use one of provided [sample captures][captures] on an i7 processors with
 multi-port Intel 82599 10GigE adapters.
@@ -119,9 +108,7 @@ Statistics for network device: eth0
 	Retried packets (ENOBUFS): 0
 	Retried packets (EAGAIN):  0
 ```
-<br \>
 
----
 <h2><a name="advanced-usage"></a>Advanced Usage</h2>
 
 To obtain near wire rate you need to compile and install [netmap]nm]
@@ -187,8 +174,6 @@ Statistics for network device: eth0
 	Retried packets (EAGAIN):  0
 Switching network driver for eth0 to normal mode... done!
 ```
-
-<br \>
 
 <h3><a name="testing-routers-or-switches"></a>Testing Routers or Switches</h3>
 On your *tcpreplay* device you will need to use two network adapters attached
