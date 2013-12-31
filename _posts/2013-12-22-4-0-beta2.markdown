@@ -16,4 +16,4 @@ resolve some bugs. Here's what's new:
 
 Visit our [downloads][] page to get it.
 
-[downloads]:      {{ site.url }}/content/download.html
+[downloads]:      {{ site.url }}/wiki/installation.html

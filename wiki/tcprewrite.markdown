@@ -1,7 +1,7 @@
 ---
 layout: content
 title:  "tcprewrite"
-categories: tcpreplay content
+categories: tcpreplay wiki
 ---
 
 - [Overview](#overview)

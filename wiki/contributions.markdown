@@ -1,7 +1,7 @@
 ---
 layout: content
 title:  "Authors and Contributors"
-categories: tcpreplay content
+categories: tcpreplay wiki
 ---
 
 Tcpreplay is authored by Aaron Turner(@synfinatic). In 2013 Fred Klassen (@fklassen),

@@ -1,7 +1,7 @@
 ---
 layout: content
 title:  "Sample Captures"
-categories: tcpreplay content
+categories: tcpreplay wiki
 ---
 
 Tcpreplay Suite can read nearly any packet capture file. If you prefer to get up and

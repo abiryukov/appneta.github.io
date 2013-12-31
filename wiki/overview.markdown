@@ -1,7 +1,7 @@
 ---
 layout: content
 title:  "Overview"
-categories: tcpreplay content
+categories: tcpreplay wiki
 ---
 
 Tcpreplay is a suite of [GPLv3] licensed utilities for UNIX (and Win32 under
@@ -38,6 +38,24 @@ the world with a a solid and full-featured test product thus far. The new author
 strives to take Tcprelay performance to levels normally only seen in commercial
 network test equipment.
 
+## Links
+
+* [Download and installation instructions][installation]
+* [Support]
+* [Tcpreplay Users Mailing List][maillist]
+* #tcpreplay on [Twitter]
+* [Live chat]
+* [FAQ]
+* [How To]
+* [The history of Tcpreplay][history]
+* Legacy
+    * [wiki][legacywiki]
+    * [Tcpreplay Blog][legacyblog]
+    * [RSS Feed][rss]
+    * [Podcasts]
+    
+
+
 [GPLv3]:    http://www.gnu.org/licenses/gpl-3.0.html
 [netmap]:   http://info.iet.unipi.it/~luigi/netmap/
 [flow]:     http://en.wikipedia.org/wiki/Traffic_flow_%28computer_networking%29
@@ -48,3 +66,15 @@ network test equipment.
 [Ethereal]: http://www.ethreal.com
 [Cisco]:    http://www.cisco.com
 [AppNeta]:  http://www.appneta.com
+[maillist]: https://lists.sourceforge.net/lists/listinfo/tcpreplay-users
+[legacyblog]:  http://synfin.net/sock_stream/tag/tcpreplay
+[legacywiki]:  http://tcpreplay.synfin.net/
+[rss]:        http://synfin.net/sock_stream/tag/tcpreplay/rss
+[Twitter]:    http://twitter.com
+[Podcasts]:   http://tcpreplay.synfin.net/tcprecast/
+[history]:        history.html
+[installation]:   installation.html
+[Live chat]:      chat.html
+[Support]:        support.html
+[FAQ]:            faq.html
+[How To]:         howto.html

@@ -1,15 +1,13 @@
 ---
 layout: content
 title:  "Support"
-categories: tcpreplay content
+categories: tcpreplay wiki
 ---
 
 
 You are also strongly encouraged to read the extensive documentation (man
 pages, FAQ, documents in /docs and email list archives) BEFORE posting to the
-tcpreplay-users email list.
-
-[http://lists.sourceforge.net/lists/listinfo/tcpreplay-users](http://lists.sourceforge.net/lists/listinfo/tcpreplay-users)
+[tcpreplay-users mail list].
 
 If you think you are experiencing a bug, 
 submit them [https://github.com/appneta/tcpreplay/issues](https://github.com/appneta/tcpreplay/issues).
@@ -41,3 +39,5 @@ information as I may not be able to reproduce your issue.
 Lastly, please don't email the maintainers directly with your questions.  Doing so
 prevents others from potentially helping you and your question/answer from
 showing up in the list archives.
+
+[maillist]: maillist.html

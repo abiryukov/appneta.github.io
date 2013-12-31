@@ -1,7 +1,7 @@
 ---
 layout: content
 title:  "FAQ"
-categories: tcpreplay content
+categories: tcpreplay wiki
 ---
 
 
@@ -62,11 +62,11 @@ then it's not. There is no such thing as 'TCPreplay' or 'TCP replay'.
 
 
 <h2><a name="where-do-i-get-tcpreplay">Q:</a> Where do I get Tcpreplay?</h2>
-Visit our [Downloads][] page.
+Visit our [Download and Installation][installation] page.
 
 
 <h2><a name="how-do-i-install-tcpreplay">Q:</a> How do I install Tcpreplay?</h2>
-You must compile. Visit our [Installation][] page.
+You must compile. [Download and Installation][installation] page.
 
 <h2><a name="is-there-a-microsoft-windows-port">Q:</a> Is there a Microsoft Windows port?</h2>  
 Windows 2000 and better are supported under Cygwin. 
@@ -615,5 +615,4 @@ Use Cases for Tcpreplay
 [autogen]:              http://autogen.sourceforge.net/
 [mark_wagner]:          http://www.redhat.com/promo/summit/2008/downloads/pdf/Thursday/Mark_Wagner.pdf
 [rfc2544]:              http://www.faqs.org/rfcs/rfc2544.html
-[downloads]:            {{ site.url }}/content/download.html
 [installation]:         {{ site.url }}/content/installation.html

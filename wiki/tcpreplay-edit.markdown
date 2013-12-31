@@ -1,7 +1,7 @@
 ---
 layout: content
 title:  "tcpreplay-edit"
-categories: tcpreplay content
+categories: tcpreplay wiki
 ---
 
 - [Overview](#overview)

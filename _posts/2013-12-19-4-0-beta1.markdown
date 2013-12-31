@@ -87,4 +87,4 @@ Statistics for network device: eth0
 Switching network driver for eth0 to normal mode... done!
 ```
 
-[downloads]:      {{ site.url }}/content/download.html
+[downloads]:      {{ site.url }}/wiki/installation.html

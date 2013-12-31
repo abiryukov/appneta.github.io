@@ -1,7 +1,7 @@
 ---
 layout: content
 title:  "tcpliveplay"
-categories: tcpreplay content
+categories: tcpreplay wiki
 ---
 
 - [Overview](#overview)

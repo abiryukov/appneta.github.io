@@ -1,7 +1,7 @@
 ---
 layout: content
 title:  "Products"
-categories: tcpreplay content
+categories: tcpreplay wiki
 ---
 The Tcpreplay suite includes the following tools:
 

@@ -1,7 +1,7 @@
 ---
 layout: content
 title:  "News"
-categories: tcpreplay content
+categories: tcpreplay wiki
 ---
 
 <div id="home">
