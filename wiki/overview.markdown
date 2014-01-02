@@ -43,7 +43,7 @@ network test equipment.
 * [Download and installation instructions][installation]
 * [Support]
 * [Tcpreplay Users Mailing List][maillist]
-* #tcpreplay on [Twitter]
+* [#Tcpreplay][Twitter] on Twitter
 * [Live chat]
 * [FAQ]
 * [How To]
@@ -70,7 +70,7 @@ network test equipment.
 [legacyblog]:  http://synfin.net/sock_stream/tag/tcpreplay
 [legacywiki]:  http://tcpreplay.synfin.net/
 [rss]:        http://synfin.net/sock_stream/tag/tcpreplay/rss
-[Twitter]:    http://twitter.com
+[Twitter]:    https://twitter.com/search?q=%23Tcpreplay
 [Podcasts]:   http://tcpreplay.synfin.net/tcprecast/
 [history]:        history.html
 [installation]:   installation.html
