@@ -17,13 +17,11 @@ variety of applications and is designed to demonstrate many types of flows acros
 If you want to have many flows in a small file and are not concerned about how realistic
 the combination of flows is, select this capture
 
-| Description |   Value  |
-|-------------|:--------:|
-| Size        | 9.4 MB   |  
-| Packets	  |  14261   |
-| Flows       |  1209    |   
-|Average packet size | 646 bytes |   
-|Duration     | 5 minutes| 
+Size:			9.4 MB   
+Packets:		14261   
+Flows:			1209   
+Average packet size:	646 bytes   
+Duration:		5 minutes   
 
 
 ## [bigFlows.pcap][big]
