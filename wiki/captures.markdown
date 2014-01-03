@@ -17,17 +17,19 @@ variety of applications and is designed to demonstrate many types of flows acros
 If you want to have many flows in a small file and are not concerned about how realistic
 the combination of flows is, select this capture
 
-Size:			9.4 MB   
-Packets:		14261   
-Flows:			1209   
-Average packet size:	646 bytes   
-Duration:		5 minutes   
+| Description |   Value  |
+|-------------|:--------:|
+| Size        | 9.4 MB   |  
+| Packets	  |  14261   |
+| Flows       |  1209    |   
+|Average packet size | 646 bytes |   
+|Duration     | 5 minutes| 
 
 
 ## [bigFlows.pcap][big]
 This is a capture of real network traffic on a busy private network's access point to the Internet.
 The capture is much larger and has a smaller average packet size, than the previous capture.
-Although it has many more flows, it will have less variety of applications. If the large size
+It also has many more flows. If the large size
 of this file isn't a problem, you may want to select it for your tests.   
 
 
