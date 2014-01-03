@@ -22,6 +22,7 @@ Packets:		14261
 Flows:			1209   
 Average packet size:	646 bytes   
 Duration:		5 minutes   
+Number Applications:    0
 
 
 ## [bigFlows.pcap][big]
@@ -36,6 +37,7 @@ Packets:		791615
 Flows:			40686  
 Average packet size:	449 bytes   
 Duration:		5 minutes   
+Number Applications:    0
 
 
 ## Contributions
